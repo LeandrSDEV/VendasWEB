@@ -1,3 +1,6 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using VendasWEB.Data;
 namespace VendasWEB
 {
     public class Program
@@ -5,6 +8,8 @@ namespace VendasWEB
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            builder.Services.AddDbContext<WEBContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("WEBContext") ?? throw new InvalidOperationException("Connection string 'WEBContext' not found.")));
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
