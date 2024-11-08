@@ -9,8 +9,7 @@ namespace VendasWEB
         {
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddDbContext<WEBContext>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("WEBContext") ?? throw new InvalidOperationException("Connection string 'WEBContext' not found.")));
-
+                options.UseMySql(builder.Configuration.GetConnectionString("DataBase"), new MySqlServerVersion(new Version(8, 0, 9))));
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
