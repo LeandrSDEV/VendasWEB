@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VendasWEB.Data;
 
@@ -11,9 +12,11 @@ using VendasWEB.Data;
 namespace VendasWEB.Migrations
 {
     [DbContext(typeof(WEBContext))]
-    partial class WEBContextModelSnapshot : ModelSnapshot
+    [Migration("20241110200848_initial")]
+    partial class initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -63,7 +66,7 @@ namespace VendasWEB.Migrations
 
                     b.HasIndex("SellerId");
 
-                    b.ToTable("Sales");
+                    b.ToTable("SalesRecord");
                 });
 
             modelBuilder.Entity("VendasWEB.Models.Seller", b =>

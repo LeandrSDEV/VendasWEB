@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using VendasWEB.Models;
 
 namespace VendasWEB.Data
@@ -14,6 +10,8 @@ namespace VendasWEB.Data
         {
         }
 
-        public DbSet<VendasWEB.Models.Departamento> Departamento { get; set; } = default!;
+        public DbSet<Departament> Departament { get; set; }
+        public DbSet<Seller> Seller { get; set; }
+        public DbSet<SalesRecord> Sales { get; set; }
     }
 }
