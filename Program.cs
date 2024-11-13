@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using VendasWEB.Data;
+using VendasWEB.Services;
 namespace VendasWEB
 {
     public class Program
@@ -13,6 +14,7 @@ namespace VendasWEB
             // Add services to the container.
             builder.Services.AddControllersWithViews();
             builder.Services.AddScoped<SeedingService>();
+            builder.Services.AddScoped<SellerService>();
 
             var app = builder.Build();
 
